@@ -17,3 +17,4 @@ Currently this is:
  - Add confirmation box when publishing
  - Remove Clutter (currently from W3TC Dashboard)
  - Add custom Image Sizes (disabled by default)
+ - SP Admin Button (Requires Font Awesome) 
