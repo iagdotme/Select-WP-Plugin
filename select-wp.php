@@ -212,6 +212,15 @@ function sp_custom_login()
         $current_user = wp_get_current_user();
         $displayName = $current_user->display_name; 
         $logout = wp_logout_url("/");
+		echo '<style>
+		      .adminEdit {position:fixed;bottom:10px;left:10px;}
+              .adminEdit p { background:#dedede; opacity:0.8; padding:10px; border:#ababab 1px solid; font-size:0.9em; border-radius:5px;}
+			  </style';
+	    echo '<script type="javascript">';
+		echo 'jQuery(document).ready(function ($) {';
+		echo '$(\'#admin-menu-show\').click(function() {$(\'.adminEdit\').toggle(\'slow\');});';
+		echo '});';
+		echo '</script>';
         if ( current_user_can('edit_post'))
 		    {
 				edit_post_link("<i class=\"icon-edit\"></i> Edit Page","<div class=\"adminEdit\"><p><i class=\"icon-user\"></i> $displayName logged in |  <a href=\"$logout\" title=\"Log Out\"><i class=\"icon-signout\"></i> Log Out</a> | <a href=\"/wp-admin/\" title=\"Go to Dashboard\"><i class=\"icon-cog\"></i> Dashboard</a> | ","</p></div>");
