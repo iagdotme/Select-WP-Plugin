@@ -207,6 +207,14 @@ function wp_remove_clutter() {
   
 
 
+// Add respond.js
+/*add_action( 'wp_head', create_function( 
+      '',
+       'echo \'<!--[if lt IE 9]><script src="'.get_template_directory_uri() . '/assets/js/respond.js"></script><![endif]-->\';'
+      ));
+*/
+
+
 // Select Performers Admin Button
 function sp_custom_login()
     {
