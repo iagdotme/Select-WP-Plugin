@@ -206,6 +206,28 @@ function wp_remove_clutter() {
   
 
 
+// Add Custom Admin Feature
+function sp_custom_login()
+    {
+        $current_user = wp_get_current_user();
+        $displayName = $current_user->display_name; 
+        $logout = wp_logout_url("/");
+        if ( current_user_can('edit_post'))
+		    {
+				edit_post_link("<i class=\"icon-edit\"></i> Edit Page","<div class=\"adminEdit\"><p><i class=\"icon-user\"></i> $displayName logged in |  <a href=\"$logout\" title=\"Log Out\"><i class=\"icon-signout\"></i> Log Out</a> | <a href=\"/wp-admin/\" title=\"Go to Dashboard\"><i class=\"icon-cog\"></i> Dashboard</a> | ","</p></div>");
+	          ?><div id="admin-menu-show" title="Show Admin Bar"><i class="icon-cog"></i></div><?php 
+            }
+        elseif(is_user_logged_in())
+		    {
+                echo "<div class=\"adminEdit\"><p><i class=\"icon-user\"></i> $displayName logged in | <a href=\"$logout\" title=\"Log Out\"><i class=\"icon-signout\"></i> Log Out</a>";
+                ?><div id="admin-menu-show" title="Show Admin Bar"><i class="icon-cog"></i></div><?php
+            }
+    }
+add_action('wp_footer', 'sp_custom_login');
+
+
+
+
 // Add new image sizes
 // http://tommaitland.net/2013/01/add-custom-image-sizes-to-wordpress-media-uploader/
 /*
