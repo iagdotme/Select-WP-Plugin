@@ -275,9 +275,4 @@ echo <<<EOT
 	});
 	</script>
 EOT;
-}
-
-
-
-
 ?>
