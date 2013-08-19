@@ -207,7 +207,7 @@ function wp_remove_clutter() {
   
 
 
-
+// Select Performers Admin Button
 function sp_custom_login()
     {
         $current_user = wp_get_current_user();
