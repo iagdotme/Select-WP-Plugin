@@ -207,12 +207,13 @@ function wp_remove_clutter() {
   
 
 
-// Add Custom Admin Feature
+
 function sp_custom_login()
     {
         $current_user = wp_get_current_user();
         $displayName = $current_user->display_name; 
         $logout = wp_logout_url("/");
+
 		if(is_user_logged_in())
 		    {
 		        echo '<style>
@@ -223,12 +224,10 @@ function sp_custom_login()
 		              #admin-menu-show:active {opacity:1; background-color:#900;}
 		              #admin-menu-show i { color:#fff; font-size: 90px;padding-left: 10px;display: block;margin-top: 10px;}
 		              #admin-menu-show:hover {cursor:pointer;}
-		        	  </style>';
-	            echo '<script type="javascript">';
-		        echo 'jQuery(document).ready(function ($) {';
-		        echo '$(\'#admin-menu-show\').click(function() {$(\'.adminEdit\').toggle(\'slow\');});';
-		        echo '});';
-		        echo '</script>';
+		        	  </style>';	
+		       $plugins_url = plugins_url();
+			   echo "<script type='text/javascript' src='$plugins_url/Select-WP-Plugin/js/main.js'></script>";            
+				
 			}
         if ( current_user_can('edit_post'))
 		    {
