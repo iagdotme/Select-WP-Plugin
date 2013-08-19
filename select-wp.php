@@ -195,6 +195,33 @@ function override_mce_options($initArray)
 
 
 
+
+// Remove Clutter by hiding widgets using CSS
+add_action('admin_head', 'wp_remove_clutter');
+
+function wp_remove_clutter() {
+  echo '<style>
+    #w3tc-dashboard-widgets {display:none;} 
+  </style>';
+  
+
+
+// Add new image sizes
+// http://tommaitland.net/2013/01/add-custom-image-sizes-to-wordpress-media-uploader/
+/*
+  function custom_image_sizes() {
+  add_theme_support('post-thumbnails');
+	add_image_size('larger',       800, 800, false);
+	add_image_size('medium-large', 500, 500, false);
+	add_image_size('thumb-small',  100, 100, true);
+	add_image_size('thumb-mini',   70,  70,  true);	
+	add_image_size('thumb-micro',  50,  50,  true);
+}
+add_action('after_setup_theme', 'custom_image_sizes');
+}
+*/
+
+
 // Add confirmation to publish
 // https://gist.github.com/plasticmind/4337952
 /* = Add a "molly guard" to the publish button */
@@ -218,5 +245,8 @@ echo <<<EOT
 	</script>
 EOT;
 }
+
+
+
 
 ?>

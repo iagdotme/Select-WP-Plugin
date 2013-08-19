@@ -15,3 +15,5 @@ Currently this is:
  - Change login logo link
  - Redirect non-admins (admins, editors & authors) to front site
  - Add confirmation box when publishing
+ - Remove Clutter (currently from W3TC Dashboard)
+ - Add custom Image Sizes (disabled by default)
