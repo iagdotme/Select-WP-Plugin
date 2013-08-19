@@ -213,20 +213,23 @@ function sp_custom_login()
         $current_user = wp_get_current_user();
         $displayName = $current_user->display_name; 
         $logout = wp_logout_url("/");
-		echo '<style>
-		      .adminEdit {position:fixed;bottom:20px;left:10px; z-index:9999; display:none;}
-		      .adminEdit p { background:#dedede; opacity:0.8; padding:10px; border:#ababab 1px solid; font-size:0.9em; border-radius:5px;}
-		      #admin-menu-show { position:fixed; bottom:-50px; left:-50px; border-radius:50px;width:100px; height:100px; background-color:#333; opacity:0.2; z-index:9999;}
-		      #admin-menu-show:hover {opacity:0.7;}
-		      #admin-menu-show:active {opacity:1; background-color:#900;}
-		      #admin-menu-show i { color:#fff; font-size: 90px;padding-left: 10px;display: block;margin-top: 10px;}
-		      #admin-menu-show:hover {cursor:pointer;}
-			  </style>';
-	    echo '<script type="javascript">';
-		echo 'jQuery(document).ready(function ($) {';
-		echo '$(\'#admin-menu-show\').click(function() {$(\'.adminEdit\').toggle(\'slow\');});';
-		echo '});';
-		echo '</script>';
+		if(is_user_logged_in())
+		    {
+		        echo '<style>
+		              .adminEdit {position:fixed;bottom:20px;left:10px; z-index:9999; display:none;}
+		              .adminEdit p { background:#dedede; opacity:0.8; padding:10px; border:#ababab 1px solid; font-size:0.9em; border-radius:5px;}
+		              #admin-menu-show { position:fixed; bottom:-50px; left:-50px; border-radius:50px;width:100px; height:100px; background-color:#333; opacity:0.2; z-index:9999;}
+		              #admin-menu-show:hover {opacity:0.7;}
+		              #admin-menu-show:active {opacity:1; background-color:#900;}
+		              #admin-menu-show i { color:#fff; font-size: 90px;padding-left: 10px;display: block;margin-top: 10px;}
+		              #admin-menu-show:hover {cursor:pointer;}
+		        	  </style>';
+	            echo '<script type="javascript">';
+		        echo 'jQuery(document).ready(function ($) {';
+		        echo '$(\'#admin-menu-show\').click(function() {$(\'.adminEdit\').toggle(\'slow\');});';
+		        echo '});';
+		        echo '</script>';
+			}
         if ( current_user_can('edit_post'))
 		    {
 				edit_post_link("<i class=\"icon-edit\"></i> Edit Page","<div class=\"adminEdit\"><p><i class=\"icon-user\"></i> $displayName logged in |  <a href=\"$logout\" title=\"Log Out\"><i class=\"icon-signout\"></i> Log Out</a> | <a href=\"/wp-admin/\" title=\"Go to Dashboard\"><i class=\"icon-cog\"></i> Dashboard</a> | ","</p></div>");
