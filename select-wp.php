@@ -201,7 +201,7 @@ add_action('admin_head', 'wp_remove_clutter');
 
 function wp_remove_clutter() {
   echo '<style>
-    .toplevel_page_better-wp-security .postbox-container, #w3tc-dashboard-widgets, #wpseo_content_top + .postbox-container {display:none;} 
+    .toplevel_page_better-wp-security .side, #w3tc-dashboard-widgets, #wpseo_content_top + .postbox-container {display:none;} 
   </style>';
 }
   
