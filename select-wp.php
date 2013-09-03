@@ -252,6 +252,22 @@ add_action('wp_footer', 'sp_custom_login');
 
 
 
+/* ---------------------------------------------------------------------------------- */
+/* Convert absolute URLs in content to site relative ones
+   Inspired by http://thisismyurl.com/6166/replace-wordpress-static-urls-dynamic-urls/
+*/
+function sp_clean_static_url($content) {
+   $thisURL = get_bloginfo('url');
+   $stuff = str_replace(' src=\"'.$thisURL, ' src=\"', $content );
+   $stuff = str_replace(' href=\"'.$thisURL, ' href=\"', $stuff );
+	return $stuff;
+}
+add_filter('content_save_pre','sp_clean_static_url','99');
+/* ---------------------------------------------------------------------------------- */
+
+
+
+
 
 // Add new image sizes
 // http://tommaitland.net/2013/01/add-custom-image-sizes-to-wordpress-media-uploader/
