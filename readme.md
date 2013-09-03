@@ -18,3 +18,4 @@ Currently this is:
  - Remove Clutter (currently from W3TC Dashboard)
  - Add custom Image Sizes (disabled by default)
  - SP Admin Button (Requires Font Awesome) 
+ - Convert images and links in content to site root relative URLs
