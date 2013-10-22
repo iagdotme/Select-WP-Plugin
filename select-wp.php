@@ -293,6 +293,26 @@ add_action('after_setup_theme', 'custom_image_sizes');
 
 
 
+// ------------------------------------------------------------------------------
+// Include Featured Image & Add Link Back To Original Post
+// http://www.paulund.co.uk/7-tips-to-improve-your-wordpress-rss-feed
+// ------------------------------------------------------------------------------
+function feed_copyright_disclaimer($content) {  
+global $post;
+if(has_post_thumbnail($post->ID)) {
+$featuredImage = '<p style="text-align:center;"><a href="' . get_permalink() . '">' . get_the_post_thumbnail($post->ID,"medium-large") .
+'</a></p>';
+}
+$content = $featuredImage."<p>".get_the_excerpt()."</p>".'<p><a href="' . get_permalink() . '">Read all of this article</a> on the website.</p>';   
+ return $content;
+}  
+
+add_filter('the_excerpt_rss','feed_copyright_disclaimer'); 
+add_filter('the_content_feed','feed_copyright_disclaimer');
+
+
+
+
 /* ------------------------------------------------------ */
 // Add confirmation dialogue box when publishing posts/pages
 // https://gist.github.com/plasticmind/4337952
