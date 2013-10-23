@@ -240,8 +240,7 @@ function sp_custom_login()
 		              #admin-menu-show i { color:#fff; font-size: 90px;padding-left: 10px;display: block;margin-top: 10px;}
 		              #admin-menu-show:hover {cursor:pointer;}
 		        	  </style>';	
-		       $plugins_url = content_url()."/mu-plugins";
-			   echo "<script type='text/javascript' src='$plugins_url/Select-WP-Plugin/js/main.js'></script>";            
+		        echo "<script>jQuery(document).ready(function ($) { $('#admin-menu-show').click(function() { $('.adminEdit').toggle('fast');});});</script>";         
 				
 			}
         if ( current_user_can('edit_post'))
