@@ -6,6 +6,7 @@ This plugin contains all the functions we tend to use on our WordPress Websites.
 Currently this is:
 
  - Hide Admin Bar
+ - Remove WordPress Logo from admin bar
  - Modify Footer Text in WP Dashboard
  - Remove popular WP Dashboard Widgets (for clean look)
  - Remove help and screen options
