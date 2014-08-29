@@ -3,7 +3,7 @@
 Plugin Name: Select WP
 Description: Custom WordPress functions and cleanup
 Author: Ian Anderson Gray
-Version: 0.1
+Version: 0.2
 Author URI: http://selectperformers.com/
 */
 
@@ -25,6 +25,16 @@ function sp_disable_admin_bar()
 add_action( 'init', 'sp_disable_admin_bar' , 9 );
 /* ------------------------------------------------------ */
 
+
+
+/* ------------------------------------------------------ */
+// Remove WordPress Logo From Admin Bar
+// http://stanislav.it/how-to-remove-wordpress-logo-from-admin-bar/
+add_action('admin_bar_menu', 'remove_wp_logo', 999);
+
+function remove_wp_logo( $wp_admin_bar ) {
+$wp_admin_bar->remove_node('wp-logo');
+}
 
 
 
